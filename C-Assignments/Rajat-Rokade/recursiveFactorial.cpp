@@ -9,6 +9,7 @@ using namespace std;
 
 int factorial (int num);
 
+//main function
 int main()
 {
 	int num;
@@ -21,6 +22,7 @@ int main()
 	return 0;
 }
 
+//Function to calculate factorial
 int factorial(int num)
 {
 	if(num==1)
