@@ -16,10 +16,9 @@ int main()
 	cout<<"Enter power of Binomial Expression : ";
 	cin>>num;
 	
-	for(int i=0;i<num;i++)
+	for(int i=0;i<=num;i++)
 	{
-		for(int j=0;j<=i;j++)
-			cout<<factorial(i)/(factorial(j)*factorial(i-j))<<" ";
+		cout<<factorial(num)/(factorial(num-i)*factorial(i))<<" ";
 		cout<<endl;
 	}
 
