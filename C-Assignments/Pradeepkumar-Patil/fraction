@@ -1,0 +1,64 @@
+#include <iostream>
+#include<string>
+using namespace std;
+class FractionalNumber{
+private:
+        int numerator1,denominator1,numerator2,denominator2;
+public:
+        FractionalNumber(){
+            numerator1=1;
+            denominator1=1;
+            numerator2=1;
+            denominator2=1;
+        }
+        ~FractionalNumber(){}
+        void setFractoin1(){
+            cout<<"Enter first fraction:"<<endl;
+            cout<<"Enter numerator"<<endl;
+            cin>>numerator1;
+            cout<<"Enter denominator:"<<endl;
+            cin>>denominator1;
+        }
+        void setFraction2(){
+            cout<<"Enter second fraction:"<<endl;
+            cout<<"Enter numerator"<<endl;
+            cin>>numerator2;
+            cout<<"Enter denominator:"<<endl;
+            cin>>denominator2;
+        }
+        void addFraction(){
+            float fraction;
+            int numerator,denominator;
+            numerator=(numerator1*denominator2)+(numerator2*denominator1);
+            denominator=denominator1*denominator2;
+            cout<<"Numerator of resultant fraction is:"<<numerator<<endl;
+            cout<<"Denominator of resultant fraction is:"<<denominator<<endl;
+            fraction=(float)numerator/(float)denominator;
+            cout<<"Result is:"<<fraction<<endl;
+        }
+
+        void subtractFraction(){
+            float fraction;
+            int numerator,denominator;
+            numerator=(numerator1*denominator2)-(numerator2*denominator1);
+            denominator=denominator1*denominator2;
+            cout<<"Numerator of resultant fraction is:"<<numerator<<endl;
+            cout<<"Denominator of resultant fraction is:"<<denominator<<endl;
+            fraction=(float)numerator/(float)denominator;
+            cout<<"Result is:"<<fraction<<endl;
+        }
+};
+
+
+
+
+
+int main()
+{
+        FractionalNumber f;
+        f.setFractoin1();
+        f.setFraction2();
+        f.addFraction();
+        f.subtractFraction();
+        return 0;
+}
