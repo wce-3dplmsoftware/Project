@@ -1,5 +1,5 @@
 /*
-*A Program to add and subtract two fractions
+* A Program to add and subtract two fractions
 */
 
 #include "stdafx.h"
@@ -30,8 +30,11 @@ public:
 	//add two fractions
 	void add(Fractional f2)
 	{
-		numerator=numerator*f2.denum+f2.numerator*denum;
-		denum=denum*f2.denum;
+		numerator=numerator*f2.getDenum()+f2.getNumerator()*denum;
+		denum=denum*f2.getDenum();
+		int gcd=getGCD(numerator,denum);
+		numerator=numerator/gcd;
+		denum=denum/gcd;
 	}
 
 	//subtract two fractions
@@ -39,6 +42,9 @@ public:
 	{
 		numerator=numerator*f2.denum-f2.numerator*denum;
 		denum=denum*f2.denum;
+		int gcd=getGCD(numerator,denum);
+		numerator=numerator/gcd;
+		denum=denum/gcd;
 	}
 
 	void display()
@@ -46,9 +52,34 @@ public:
 		cout<<"The Fraction is : "<<numerator<<"/"<<denum<<endl;
 	}
 
+	int getDenum()
+	{
+		return denum;
+	}
+
+	int getGCD(int a,int b)
+	{
+		int min=(a>b)?b:a;
+		int gcd=1;
+		for(int i=min;i>1;i--)
+		{
+			if(a%i==0&&b%i==0)
+				return i;
+		}
+		return gcd;
+	}
+
+	int getNumerator()
+	{
+		return numerator;
+	}
+
+	
+
 	~Fractional()
 	{}
 };
+
 
 //main function
 int main()
