@@ -1,0 +1,130 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <string>
+using namespace std;
+
+class CString{
+
+private:
+    char *str;
+
+public:
+    //char * str;
+    CString(){
+        str=new char[30];
+        str[0]='\0';
+        cout<<"String is:"<<str<<endl;
+    }
+
+    CString(int n){
+        str=new char[30];
+        str[0]='\0';
+        cout<<"String is:"<<str<<endl;
+    }
+
+    CString(char c,int n){
+        str=new char[n];
+        for(int i=0;i<n;i++){
+            str[i]=c;
+        }
+        cout<<"String is:"<<str<<endl;
+    }
+
+    CString(char *c){
+        str=c;
+        cout<<"String is:"<<str<<endl;
+    }
+
+    int ssize(char *s){
+        int l=0;
+        while(s[l]!='\0'){
+            l++;
+        }
+        return l;
+    }
+    /*int print(CString a)
+    {
+        return ssize(a.str);
+    }*/
+
+    void operator = (CString & c){
+        int l=ssize(c.str),i=0;
+        for(i=0;i<l;i++){
+            str[i]=c.str[i];
+        }
+        str[i]='\0';
+        cout<<"String after:"<<str<<endl;
+    }
+
+    void operator += (CString &c){
+        int cl=ssize(c.str);
+        int l=ssize(str),i=0,j=0;
+        for(i=l,j=0;j<cl;i++,j++){
+            str[i]=c.str[j];
+        }
+        str[i]='\0';
+        cout<<"String after concatenation:"<<str<<endl;
+    }
+
+    bool operator == (CString &c){
+        int l=ssize(str),cl=ssize(c.str),i=0;
+        if(l!=cl){
+            return false;
+        }
+        else{
+            while(i<l){
+                if(str[i]==c.str[i])
+                    i++;
+                else
+                    break;
+            }
+            if(i==l){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+
+    bool operator < (CString &c){
+        int l=ssize(str),cl=ssize(c.str);
+        if(l<cl){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    char operator [] (int n){
+        return str[n-1];
+    }
+};
+int main()
+{
+    //cout << "Hello world!" << endl;
+    CString c1;
+    CString c2(10);
+    CString c3('d',9);
+    CString c4("3dPLM");
+
+    c1=c4;
+    c2+=c4;
+    if(c1==c2){
+        cout<<"C1 and C2 are equal"<<endl;
+    }
+    else{
+        cout<<"C1 and C2 are not equal"<<endl;
+    }
+
+    if(c3<c4){
+        cout<<"C3 is less than C4"<<endl;
+    }
+    else
+        cout<<"C3 is greater than C4"<<endl;
+
+    cout<<"Character at second position is:"<<c4[2]<<endl;
+    //cout<<c1.print(c2);
+    return 0;
+}
