@@ -1,0 +1,68 @@
+#include <iostream>
+#include<string>
+
+using namespace std;
+
+class Fraction{
+    int numerator,denominator;
+public:
+    Fraction(){
+        numerator=1;
+        denominator=1;
+    }
+    Fraction(int n,int d){
+        numerator=n;
+        denominator=d;
+    }
+    void addFraction(Fraction f2){
+        int num,denom,lcm,gcd=1;
+        for(int i=1;(i<=denominator||i<=f2.denominator);i++){
+            if((denominator%i==0)&&(f2.denominator%i==0)){
+                gcd=i;
+            }
+            lcm=(denominator*f2.denominator)/gcd;
+        }
+        num=(numerator*(lcm/denominator))+(f2.numerator*(lcm/f2.denominator));
+        denom=lcm;
+        cout<<"The numerator is:"<<num<<endl;
+        cout<<"The denominator is:"<<denom<<endl;
+    }
+
+    void subtractFraction(Fraction f2){
+        int num,denom,lcm,gcd=1;
+        for(int i=1;(i<denominator||i<f2.denominator);i++){
+            if((denominator%i==0)&&(f2.denominator%i==0)){
+                gcd=i;
+            }
+            lcm=(denominator*f2.denominator)/gcd;
+        }
+        num=(numerator*(lcm/denominator))-(f2.numerator*(lcm/f2.denominator));
+        denom=lcm;
+        cout<<"The numerator is:"<<num<<endl;
+        cout<<"The denominator is:"<<denom<<endl;
+    }
+};
+int main()
+{
+    int num1,denom1,num2,denom2;
+
+
+    cout<<"Enter Fraction 1:"<<endl;
+    cout<<"Enter numerator"<<endl;
+    cin>>num1;
+    cout<<"Enter denominator"<<endl;
+    cin>>denom1;
+
+    Fraction f1(num1,denom1);
+    cout<<"Enter Fraction 2:"<<endl;
+    cout<<"Enter numerator"<<endl;
+    cin>>num2;
+    cout<<"Enter denominator"<<endl;
+    cin>>denom2;
+
+    Fraction f2(num2,denom2);
+
+    f1.addFraction(f2);
+    f1.subtractFraction(f2);
+    return 0;
+}

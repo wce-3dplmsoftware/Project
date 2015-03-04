@@ -1,0 +1,63 @@
+#include <iostream>
+#include<string>
+using namespace std;
+class Employee{
+private:
+        long empcode;
+        double salary;
+        string name;
+public:
+        Employee(){
+            empcode=0;
+            salary=0.0;
+            name= "";
+        }
+        ~Employee(){}
+        void setempcode(long e){
+            empcode=e;
+        }
+        void setsalary(double s){
+            salary=s;
+        }
+        void setname(string n){
+            name=n;
+        }
+        long getempcode(){
+            return empcode;
+        }
+        double getsalary(){
+            return salary;
+        }
+        string getname(){
+            return name;
+        }
+        void display(){
+            long c1=getempcode();
+            string n1=getname();
+            double s1=getsalary();
+            cout<<"Code of Employee:"<<c1<<endl;
+            cout<<"Salary of Employee:"<<s1<<endl;
+            cout<<"Name of Employee:"<<n1<<endl;
+        }
+};
+
+
+
+int main()
+{
+    long c;
+    double s;
+    string n;
+    Employee e;
+    cout<<"Enter code of Employee:"<<endl;
+    cin >> c;
+    e.setempcode(c);
+    cout<<"Enter salary of Employee:"<<endl;
+    cin >> s;
+    e.setsalary(s);
+    cout<<"Enter name of Employee:"<<endl;
+    cin>>n;
+    e.setname(n);
+    e.display();
+    return 0;
+}
