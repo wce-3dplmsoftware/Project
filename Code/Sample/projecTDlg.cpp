@@ -189,9 +189,9 @@ void CprojecTDlg::OnBnClickedOk()
 {
 	// TODO: Add your control notification handler code here
 	// CDialogEx::OnOK();
-	CSecondDialog Dlg;
+	//CSecondDialog Dlg;
 
-	Dlg.DoModal();
+	//Dlg.DoModal();
 
 }
 
