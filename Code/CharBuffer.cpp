@@ -1,3 +1,4 @@
+InitializeMagick("");
 Image image("earth.png");
 int width=128,height=128;
 //width and height are width and height of image "earth"
